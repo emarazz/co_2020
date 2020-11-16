@@ -34,9 +34,9 @@ end
 %% VISUALIZE
 plot(SKIP_LEN : 50 + SKIP_LEN-1, y(1:50), 'Displayname', 'actual', 'LineWidth', 2, 'color', 'k')
 hold on
-plot(SKIP_LEN : 50 + SKIP_LEN-1, w_val(:,1)'*x(1:50,1:n)'+b_val(1), 'Displayname', 'prediction \tau = 0.1', 'LineWidth', 2)
-plot(SKIP_LEN : 50 + SKIP_LEN-1, w_val(:,2)'*x(1:50,1:n)'+b_val(2), 'Displayname', 'prediction \tau = 0.5', 'LineWidth', 2)
-plot(SKIP_LEN : 50 + SKIP_LEN-1, w_val(:,3)'*x(1:50,1:n)'+b_val(3), 'Displayname', 'prediction \tau = 0.9', 'LineWidth', 2)
+plot(SKIP_LEN : 50 + SKIP_LEN-1, w_val(:,1)'*x(49:98,1:n)'+b_val(1), 'Displayname', 'prediction \tau = 0.1', 'LineWidth', 2)
+plot(SKIP_LEN : 50 + SKIP_LEN-1, w_val(:,2)'*x(49:98,1:n)'+b_val(2), 'Displayname', 'prediction \tau = 0.5', 'LineWidth', 2)
+plot(SKIP_LEN : 50 + SKIP_LEN-1, w_val(:,3)'*x(49:98,1:n)'+b_val(3), 'Displayname', 'prediction \tau = 0.9', 'LineWidth', 2)
 xlabel('t')
 ylabel('Electricity prices')
 hold off
