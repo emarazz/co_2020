@@ -32,7 +32,7 @@ lambda_m = value(lambda_m);
 
 %%
 %Compute b*(denote by b_opt) using the optimal dual solution
-k = find(lambda_p+lambda_m<0.5,1);
+k = find(lambda_p+lambda_m<0.499,1);
 b_opt = (1/rho*K(k,:)*(lambda_p-lambda_m+tau-1/2)+y(k));
 %%
 %Discretize the input region, i.e., [min(x), max(x)] to 100 discretization points
