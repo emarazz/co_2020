@@ -1,0 +1,49 @@
+%% Distributionally Robust Portfolio Optimization
+% Distributionally Robust Optimization
+% function y = p6q4(train, test, rho)
+% Input: 
+% - train: training samples
+% - test: testing samples
+% - rho: Wasserstein radius
+% Output:
+% - y: mean utility achieved by the optimal decision
+
+% Fill in the sections marked by '...'
+function y = p34(train, test, rho)
+%% Utility function, Wasserstein radius and norm for the Wasserstein ball
+a = [4; 1];
+b = [0; 0];
+
+%% Number of assets and training periods
+K = length(train(1,:));
+N = length(train(:,1));
+L = length(a);
+
+%% Decision Variables
+x = sdpvar(K,1);
+lambda = sdpvar(1,1);
+mu_hat = sdpvar(N,1);
+mu = sdpvar(N,1);
+
+%% Objective
+obj = -(-lambda*rho^2 + 1/N*sum(mut));
+
+%% Constraints
+con = [lambda >= 0,
+       x>=0,
+       ones(K,1)'*x==1,
+       train*x*a'+ones(N,1)*b'>=t*ones(1,L),
+       mu==-t,
+       mu*ones(N,1)'+ones(N,1)*mut'<=lambda*M];
+    
+%% Optimization Settings
+ops = sdpsettings('solver','Gurobi','verbose',1);
+diag = optimize(con,...,ops);
+
+%% Retrieve portfolio weights 
+x = value(x);
+    
+%% Evaluate portfolio
+y = ...
+
+end
